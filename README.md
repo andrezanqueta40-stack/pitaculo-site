@@ -2,12 +2,8 @@
 
 Site institucional da Pitáculo (criação de sites profissionais). Arquivo único: `index.html`.
 
-## Antes de publicar
-Abra o `index.html` e procure por `var WHATS=""` perto do final. Coloque o número do WhatsApp com DDD, sem espaços:
-
-    var WHATS="5535999999999";
-
-Assim o formulário de orçamento abre a conversa direto no WhatsApp.
+## WhatsApp
+O formulário e os botões de contato já enviam as mensagens para o WhatsApp da Pitáculo: (19) 99458-4321. Para trocar o número, edite `var WHATS="5519994584321";` no final do `index.html` (55 + DDD + número, sem espaços).
 
 ## Como publicar no GitHub Pages
 1. Crie um repositório novo no GitHub (ex.: `pitaculo-site`).

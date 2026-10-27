@@ -87,7 +87,7 @@ footer{padding:50px 0 40px;border-top:1px solid var(--line);margin-top:96px}.fg{
 .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}.tc .ico{background:var(--ac)}.tc .ico svg{stroke:#fff}.tc h3{font-size:19px;margin:14px 0 6px}.tc p{font-size:14.5px;color:var(--mute)}
 .ci{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);cursor:pointer;font-size:16px}.ci:last-child{border:0}.ci input{display:none}.ci i{flex:none;width:30px;height:30px;border-radius:9px;border:2.5px solid var(--ac);display:grid;place-items:center;transition:background .2s}.ci input:checked+i{background:var(--gr);border-color:var(--gr)}.ci input:checked+i:after{content:"✓";color:#fff;font-style:normal;font-size:16px;font-weight:700}
 .sc{text-align:center;position:relative}.sc svg{width:210px;display:block;margin:auto}.sn{position:absolute;left:0;right:0;top:78px;font-size:18px;color:var(--mute)}.sn b{font-size:54px;color:var(--ink);letter-spacing:-2px}.sc h3{font-size:24px;margin-top:14px}
-.stk{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:25;transform:translateY(140px);transition:transform .35s;box-shadow:0 14px 34px #2f857666}.stk.on{transform:none}
+.wab{position:fixed;left:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:25;display:flex;align-items:center;gap:10px;background:#25a366;color:#fff;font:600 15px Sora,sans-serif;text-decoration:none;padding:12px 20px 12px 14px;border-radius:100px;box-shadow:0 14px 34px #25a36655;transition:transform .2s}.wab:hover{transform:translateY(-3px)}.wab svg{width:26px;height:26px}@media(max-width:560px){.wab span{display:none}.wab{padding:14px}}.stk{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:25;transform:translateY(140px);transition:transform .35s;box-shadow:0 14px 34px #2f857666}.stk.on{transform:none}
 #pg{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:0;background:linear-gradient(90deg,var(--ac),var(--gr));z-index:40}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1}}
 @media(max-width:900px){.tg{grid-template-columns:1fr 1fr}.ars{grid-template-columns:1fr 1fr}.fl{display:none}.opts{grid-template-columns:1fr}}
@@ -199,19 +199,24 @@ input[type=range]{padding:0;border:0;background:none;accent-color:var(--ac);heig
 <details><summary>Como funciona a garantia?</summary><p>Se não ficar satisfeito, você pode pedir o reembolso em até 7 dias, conforme as condições combinadas no orçamento.</p></details>
 <details><summary>Qual a diferença para plataformas de site pronto?</summary><p>Elas são práticas, mas as alterações ficam por sua conta. Com a Pitáculo, você tem alguém que faz por você e dá suporte. Recomendamos comparar e escolher a melhor opção para o seu caso.</p></details>
 <details><summary>O site funciona no celular?</summary><p>Sim. Todos os nossos sites são responsivos e se ajustam a celular, tablet e computador.</p></details>
+<div class="card" style="margin-top:22px;text-align:center"><b>Ficou com alguma dúvida?</b><p class="note" style="margin:6px 0 16px">Fale direto com a gente, a resposta é de gente de verdade.</p><a class="btn" id="faqwa" target="_blank" rel="noopener">Chamar no WhatsApp</a></div>
 </div></section>
 
 <section style="padding-top:0"><div class="wrap"><div class="final"><h2>Vamos colocar o seu site no ar?</h2><p>Peça seu orçamento e deixe a parte difícil com a gente.</p><a class="btn" href="#orcamento">Peça seu orçamento</a></div></div></section>
 </main>
-<a class="btn stk" id="stk" href="#orcamento">Peça orçamento</a><div id="pg"></div>
+<a class="wab" id="wab" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8c-.5 1-.3 2.300.8 3.600s2.500 2.200 3.700 2.400c.8.1 1.500-.4 1.700-1l-1.500-.9-.8.600c-.8-.3-1.800-1.200-2.300-2.100l.6-.8L10.200 8z" fill="#fff"/></svg><span>WhatsApp</span></a><a class="btn stk" id="stk" href="#orcamento">Peça orçamento</a><div id="pg"></div>
 <footer><div class="wrap fg"><a class="brand" href="#topo"><i class="lg" style="width:56px"></i>Pitáculo</a><p>Criação de sites profissionais · © 2026 Pitáculo</p></div></footer>
 <script>
-var WHATS=""; // coloque o número com DDD, ex.: 5535999999999
+var WHATS="5519994584321";
+function wa(t){return 'https://wa.me/'+WHATS+'?text='+encodeURIComponent(t)}
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();
-var d=new FormData(e.target),t='Olá, Pitáculo! Quero um orçamento.\nNome: '+d.get('nome')+'\nWhatsApp: '+(d.get('tel')||'-')+'\nEmpresa: '+(d.get('empresa')||'-')+'\nÁrea: '+d.get('area')+'\nJá tem site: '+d.get('tem')+'\nPrazo: '+d.get('prazo')+'\nPrecisa: '+(d.getAll('obj').join(', ')||'-')+'\nProjeto: '+(d.get('msg')||'-');
-var ok=document.getElementById('ok');ok.style.display='block';
-if(WHATS){window.open('https://wa.me/'+WHATS+'?text='+encodeURIComponent(t),'_blank');ok.textContent='Abrindo o WhatsApp com a sua mensagem…';}
-else{try{navigator.clipboard.writeText(t)}catch(x){}ok.textContent='Mensagem pronta e copiada. Em breve este botão abrirá direto o WhatsApp da Pitáculo.';}});
+var d=new FormData(e.target),n=(d.get('nome')||'').trim(),em=(d.get('empresa')||'').trim(),obj=d.getAll('obj').join(', '),msg=(d.get('msg')||'').trim();
+var t='Olá, Pitáculo! Aqui é '+n+(em?', da empresa '+em:'')+'. 👋\n\nVim pelo site de vocês e quero um orçamento para um site profissional.\n\n'+
+'• Área de atuação: '+d.get('area')+'\n• Situação atual: '+d.get('tem')+'\n• Prazo desejado: '+d.get('prazo')+'\n'+(obj?'• O site precisa: '+obj+'\n':'')+(d.get('tel')?'• Meu WhatsApp: '+d.get('tel')+'\n':'')+(msg?'\n'+msg+'\n':'')+'\nFico no aguardo. Obrigado(a)!';
+var ok=document.getElementById('ok'),u=wa(t);ok.style.display='block';
+ok.innerHTML='Abrindo o WhatsApp da Pitáculo com a sua mensagem pronta… Se não abrir, <a href="'+u+'" target="_blank" rel="noopener" style="color:var(--ac);font-weight:600">toque aqui</a>.';
+window.open(u,'_blank');});
+
 
 var K={saude:['Sua clínica online','Agende consultas com facilidade','Agendar','#2f8576','#7fd1c0'],comercio:['Sua loja online','Mostre seus produtos e venda mais','Ver produtos','#2f6fd6','#8fd1c0'],advocacia:['Seu escritório online','Passe confiança e receba contatos','Falar conosco','#1d2f55','#5b78b5'],beleza:['Seu salão online','Mostre seus trabalhos e agende','Agendar horário','#d6568f','#f4a6c6']};
 var tb=document.querySelectorAll('#tabs button'),win=document.querySelector('.win');
@@ -247,4 +252,8 @@ var ba=document.getElementById('ba'),bi=document.getElementById('b_ba');bi.oninp
 new IntersectionObserver(function(en,o){if(en[0].isIntersecting){o.disconnect();var k=0,h=setInterval(function(){k+=.07;var v=50+Math.sin(k)*32*Math.max(0,1-k/6.3);bi.value=v;bi.oninput();if(k>6.3){clearInterval(h);bi.value=50;bi.oninput()}},30)}},{threshold:.6}).observe(ba);
 var mk=document.querySelector('.mock');if(mk&&matchMedia('(hover:hover)').matches){mk.parentNode.addEventListener('pointermove',function(e){var b=mk.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;mk.style.transform='perspective(900px) rotateY('+x*8+'deg) rotateX('+(-y*8)+'deg)'});mk.parentNode.addEventListener('pointerleave',function(){mk.style.transform=''})}
 })();
+
+(function(){var m1='Olá, Pitáculo! Vim pelo site de vocês e gostaria de conversar sobre a criação de um site para o meu negócio. 😊',m2='Olá, Pitáculo! Tenho uma dúvida sobre os serviços de vocês. Podem me ajudar?';
+document.getElementById('wab').href=wa(m1);var q=document.getElementById('faqwa');if(q)q.href=wa(m2);
+var sw=document.querySelector('.vsc .btn');})();
 </script></body></html>
